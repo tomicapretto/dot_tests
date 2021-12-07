@@ -66,6 +66,8 @@ fail:
 
 
 
+
+
 static PyObject *matrix_vector(PyObject *self, PyObject *args) {
     // This is the function that works for the general case where
     // you can have any number of ones per row.
@@ -150,8 +152,8 @@ fail:
     return NULL;
 }
 
-// Not exported for now...
-static PyObject *dot_matrix_vector_special(PyObject *self, PyObject *args) {
+
+static PyObject *single_binary_matrix_vector(PyObject *self, PyObject *args) {
     // This function only works for the case where you have exactly one 1 per row.
 
     // Inputs
@@ -213,6 +215,7 @@ fail:
 
 // Method definition
 static PyMethodDef ModuleMethods[] = {
+    {"single_binary_matrix_vector", single_binary_matrix_vector, METH_VARARGS, "Dot product between a  and a vector."},
     {"binary_matrix_vector", binary_matrix_vector, METH_VARARGS, "Dot product between a ZeroOneMatrix and a vector."},
     {"matrix_vector", matrix_vector, METH_VARARGS, "Dot product between a SparseMatrix and a vector."},
     {NULL, NULL, 0, NULL}
