@@ -4,8 +4,8 @@ from setuptools import Extension
 import numpy
 
 setup(
-    name="example",
-    version="1.0",
+    name="sparsedot",
+    version="0.0.1",
     include_dirs=[numpy.get_include()],
-    ext_modules=[Extension("example", ["example.c"])]
+    ext_modules=[Extension("sparsedot", ["sparsedot.c"])]
 )
